@@ -1,0 +1,11 @@
+--- trp-0.0.20120628.orig/trpcurl/Makefile
++++ trp-0.0.20120628/trpcurl/Makefile
+@@ -17,7 +17,7 @@ $(mylibs):		$(myobjs)
+ 	rm -f $(mylibs)
+ 	ar rcs ../libs/libtrp$(myname).a $(myobjs)
+ ifeq ($(UNAME), Linux)
+-	$(CC) -shared $(LDFLAGS) -Wl,-soname,libtrp$(myname).so -o ../libs/libtrp$(myname).so $(myobjs)
++	$(CC) -shared $(LDFLAGS) -Wl,-soname,libtrp$(myname).so -o ../libs/libtrp$(myname).so $(myobjs) -lcurl
+ endif
+ 
+ $(myobjs):		../trp/trp.h trp$(myname).h

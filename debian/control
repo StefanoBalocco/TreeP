@@ -1,0 +1,23 @@
+Source: trp
+Section: utils
+Priority: optional
+Maintainer: Stefano Balocco <Stefano.Balocco@gmail.com>
+Build-Depends: debhelper, libgc-dev, libgmp-dev, libmysqlclient-dev, libavcodec-dev, libavformat-dev, libavutil-dev, libswscale-dev, libgcrypt20-dev, libgpg-error-dev, libgpgme11-dev, libcurl4-openssl-dev, libid3tag0-dev, libsqlite3-dev, libexif-dev, libmgl-dev, libmagic-dev, libgtk2.0-dev, zlib1g-dev, libpng-dev
+Standards-Version: 3.9.2
+Homepage: https://github.com/fsinapsi/TreeP
+
+Package: treep
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libtrp (= ${binary:Version})
+Suggests: treep-doc
+Description: TreeP is a programming language in development phase
+
+Package: treep-doc
+Architecture: all
+Depends: ${misc:Depends}
+Description: TreeP is a programming language in development phase
+
+Package: libtrp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: TreeP is a programming language in development phase

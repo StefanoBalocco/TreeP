@@ -1,0 +1,3 @@
+version=3
+opts=dversionmangle=s/^0\.0\.// \
+http://fsinapsi.altervista.org/code/treep/index.html trp-([0-9]+)\.zip

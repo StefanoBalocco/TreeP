@@ -1,0 +1,28 @@
+--- trp-0.0.20120628.orig/trppix/Makefile
++++ trp-0.0.20120628/trppix/Makefile
+@@ -1,4 +1,3 @@
+-
+ CC=gcc
+ UNAME := $(shell uname -s)
+ 
+@@ -20,7 +19,7 @@ $(mylibs):		$(myobjs)
+ 	rm -f $(mylibs)
+ 	ar rcs ../libs/libtrp$(myname).a $(myobjs)
+ ifeq ($(UNAME), Linux)
+-	$(CC) -shared $(LDFLAGS) -Wl,-soname,libtrp$(myname).so -o ../libs/libtrp$(myname).so $(myobjs)
++	$(CC) -shared $(LDFLAGS) -Wl,-soname,libtrp$(myname).so -o ../libs/libtrp$(myname).so $(myobjs) `pkg-config libpng --libs` -ljpeg -lm
+ endif
+ 
+ $(myobjs):		../trp/trp.h trp$(myname).h trppix_internal.h
+--- trp-0.0.20120628.orig/compiler/Makefile
++++ trp-0.0.20120628/compiler/Makefile
+@@ -8,7 +8,8 @@ TRPC=trpc
+ endif
+ 
+ LDFLAGS=  -L/usr/local/lib -L/opt/local/lib -L../libs
+-LDFLAGS+= -ltrppix `pkg-config libpng --libs` -ljpeg
++#LDFLAGS+= -ltrppix `pkg-config libpng --libs` -ljpeg
++LDFLAGS+= -ltrppix
+ LDFLAGS+= -ltrp -lgmp -lgc
+ ifeq ($(UNAME), MINGW32_NT-5.1)
+ LDFLAGS+= -lpthreadGC2s -lws2_32
